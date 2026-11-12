@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ApartmentCard, apartments } from "./apartment-card";
+import { useLocale } from "@/i18n/locale-provider";
 
 export function ApartmentsSection() {
+  const { t } = useLocale();
   return (
     <section id="apartments" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
@@ -15,15 +17,13 @@ export function ApartmentsSection() {
           className="text-center mb-24"
         >
           <p className="text-primary text-xs tracking-[0.4em] uppercase mb-4">
-            Our Collection
+            {t.apartments.eyebrow}
           </p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground tracking-tight mb-6">
-            Premium Apartments
+            {t.apartments.title}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Each of our carefully curated apartments offers a unique experience,
-            blending contemporary design with luxurious comfort for an
-            unforgettable stay.
+            {t.apartments.intro}
           </p>
         </motion.div>
 

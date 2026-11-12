@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import { useLocale } from "@/i18n/locale-provider";
 
 export function Contact() {
+  const { t } = useLocale();
+  const f = t.contact.form;
   return (
     <section id="contact" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
@@ -15,14 +18,13 @@ export function Contact() {
           className="text-center mb-20"
         >
           <p className="text-primary text-xs tracking-[0.4em] uppercase mb-4">
-            Get in Touch
+            {t.contact.eyebrow}
           </p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground tracking-tight mb-6">
-            Book Your Stay
+            {t.contact.title}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Ready to experience luxury living? Reach out to us and we&apos;ll
-            help you find the perfect apartment for your stay.
+            {t.contact.intro}
           </p>
         </motion.div>
 
@@ -37,7 +39,7 @@ export function Contact() {
           >
             <div>
               <h3 className="text-xl font-light text-foreground mb-6 tracking-wide">
-                Contact Information
+                {t.contact.infoTitle}
               </h3>
               <div className="space-y-6">
                 <a
@@ -49,7 +51,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground/60 mb-1">
-                      Email
+                      {t.contact.email}
                     </p>
                     <p className="text-sm">info@sunriseapartments.com</p>
                   </div>
@@ -64,7 +66,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground/60 mb-1">
-                      Phone
+                      {t.contact.phone}
                     </p>
                     <p className="text-sm">+383 44 116 924</p>
                   </div>
@@ -81,9 +83,9 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground/60 mb-1">
-                      Location
+                      {t.contact.location}
                     </p>
-                    <p className="text-sm">Prishtina, Kosovo · View on Google Maps</p>
+                    <p className="text-sm">{t.contact.locationText}</p>
                   </div>
                 </a>
 
@@ -96,7 +98,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground/60 mb-1">
-                      Instagram
+                      {t.contact.instagram}
                     </p>
                     <p className="text-sm">@sunriseapartments</p>
                   </div>
@@ -121,41 +123,41 @@ export function Contact() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                    First Name
+                    {f.firstName}
                   </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 bg-secondary/50 border border-border text-foreground text-sm focus:border-primary/50 focus:outline-none transition-colors"
-                    placeholder="John"
+                    placeholder={f.firstNamePlaceholder}
                   />
                 </div>
                 <div>
                   <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                    Last Name
+                    {f.lastName}
                   </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 bg-secondary/50 border border-border text-foreground text-sm focus:border-primary/50 focus:outline-none transition-colors"
-                    placeholder="Doe"
+                    placeholder={f.lastNamePlaceholder}
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                  Email
+                  {f.email}
                 </label>
                 <input
                   type="email"
                   className="w-full px-4 py-3 bg-secondary/50 border border-border text-foreground text-sm focus:border-primary/50 focus:outline-none transition-colors"
-                  placeholder="john@example.com"
+                  placeholder={f.emailPlaceholder}
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                    Check-in
+                    {f.checkIn}
                   </label>
                   <input
                     type="date"
@@ -164,7 +166,7 @@ export function Contact() {
                 </div>
                 <div>
                   <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                    Check-out
+                    {f.checkOut}
                   </label>
                   <input
                     type="date"
@@ -175,12 +177,12 @@ export function Contact() {
 
               <div>
                 <label className="block text-xs tracking-widest uppercase text-muted-foreground mb-2">
-                  Message
+                  {f.message}
                 </label>
                 <textarea
                   rows={4}
                   className="w-full px-4 py-3 bg-secondary/50 border border-border text-foreground text-sm focus:border-primary/50 focus:outline-none transition-colors resize-none"
-                  placeholder="Tell us about your ideal stay..."
+                  placeholder={f.messagePlaceholder}
                 />
               </div>
 
@@ -188,7 +190,7 @@ export function Contact() {
                 type="submit"
                 className="w-full py-4 bg-primary text-primary-foreground text-sm tracking-[0.2em] uppercase hover:bg-primary/90 transition-all duration-300"
               >
-                Send Inquiry
+                {f.submit}
               </button>
             </form>
           </motion.div>

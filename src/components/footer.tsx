@@ -1,6 +1,10 @@
+"use client";
+
 import { Logo } from "./logo";
+import { useLocale } from "@/i18n/locale-provider";
 
 export function Footer() {
+  const { t } = useLocale();
   return (
     <footer className="border-t border-border py-16 px-6">
       <div className="max-w-7xl mx-auto">
@@ -12,36 +16,35 @@ export function Footer() {
               href="#home"
               className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors"
             >
-              Home
+              {t.nav.home}
             </a>
             <a
               href="#apartments"
               className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors"
             >
-              Apartments
+              {t.nav.apartments}
             </a>
             <a
               href="#about"
               className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors"
             >
-              About
+              {t.nav.about}
             </a>
             <a
               href="#contact"
               className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors"
             >
-              Contact
+              {t.nav.contact}
             </a>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground/60 tracking-wider">
-            &copy; {new Date().getFullYear()} Sunrise Apartments. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {t.footer.rights}
           </p>
           <p className="text-xs text-muted-foreground/40 tracking-wider">
-            Premium Luxury Stays
+            {t.footer.tagline}
           </p>
         </div>
       </div>

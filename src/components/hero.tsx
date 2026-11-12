@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useLocale } from "@/i18n/locale-provider";
 
 const heroImages = [
   "/apartments/b20/3.jpg",
@@ -13,6 +14,7 @@ const heroImages = [
 
 export function Hero() {
   const [current, setCurrent] = useState(0);
+  const { t } = useLocale();
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % heroImages.length);
@@ -37,7 +39,7 @@ export function Hero() {
         >
           <Image
             src={heroImages[current]}
-            alt="Luxury apartment interior"
+            alt={t.hero.imageAlt}
             fill
             className="object-cover"
             priority
@@ -57,29 +59,28 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <p className="text-primary text-sm tracking-[0.4em] uppercase mb-6">
-            Premium Luxury Stays
+            {t.hero.eyebrow}
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-light text-white tracking-tight leading-tight mb-6">
-            Where Elegance
+            {t.hero.titleLine1}
             <br />
-            <span className="font-normal">Meets Comfort</span>
+            <span className="font-normal">{t.hero.titleLine2}</span>
           </h1>
           <p className="text-white/60 text-lg md:text-xl max-w-xl mx-auto mb-10 font-light leading-relaxed">
-            Experience the finest in modern luxury living. Beautifully designed
-            apartments crafted for an unforgettable stay.
+            {t.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#apartments"
               className="px-10 py-4 bg-primary text-primary-foreground text-sm tracking-[0.2em] uppercase hover:bg-primary/90 transition-all duration-300"
             >
-              Explore Our Suites
+              {t.hero.explore}
             </a>
             <a
               href="#contact"
               className="px-10 py-4 border border-white/30 text-white text-sm tracking-[0.2em] uppercase hover:bg-white/10 transition-all duration-300"
             >
-              Get in Touch
+              {t.hero.contact}
             </a>
           </div>
         </motion.div>

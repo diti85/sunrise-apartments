@@ -15,13 +15,18 @@ import {
   ChevronRight,
   X,
 } from "lucide-react";
+import { useLocale } from "@/i18n/locale-provider";
+
+const features = [
+  { key: "wifi", icon: <Wifi size={16} /> },
+  { key: "ac", icon: <Wind size={16} /> },
+  { key: "tv", icon: <Tv size={16} /> },
+  { key: "washer", icon: <WashingMachine size={16} /> },
+] as const;
 
 export interface Apartment {
-  id: string;
+  id: "a57" | "b10" | "b20";
   name: string;
-  tagline: string;
-  description: string;
-  features: { icon: React.ReactNode; label: string }[];
   images: string[];
   guests: number;
   bedrooms: number;
@@ -33,15 +38,6 @@ export const apartments: Apartment[] = [
   {
     id: "a57",
     name: "Suite A57",
-    tagline: "Modern Minimalist Retreat",
-    description:
-      "A beautifully crafted space featuring sleek modern design, glass partitions, and premium furnishings. The open-concept living area flows seamlessly into a stylish bedroom, creating a refined atmosphere for discerning guests.",
-    features: [
-      { icon: <Wifi size={16} />, label: "High-Speed WiFi" },
-      { icon: <Wind size={16} />, label: "Air Conditioning" },
-      { icon: <Tv size={16} />, label: "Smart TV" },
-      { icon: <WashingMachine size={16} />, label: "Washer" },
-    ],
     images: Array.from({ length: 27 }, (_, i) => `/apartments/a57/${i + 1}.jpg`),
     guests: 4,
     bedrooms: 1,
@@ -51,15 +47,6 @@ export const apartments: Apartment[] = [
   {
     id: "b10",
     name: "Suite B10",
-    tagline: "Classic Luxury Haven",
-    description:
-      "An exquisite blend of classic elegance and modern comfort. Featuring warm tones, marble-finished bathroom with gold fixtures, and a cozy living space adorned with premium textiles and designer furniture.",
-    features: [
-      { icon: <Wifi size={16} />, label: "High-Speed WiFi" },
-      { icon: <Wind size={16} />, label: "Air Conditioning" },
-      { icon: <Tv size={16} />, label: "Smart TV" },
-      { icon: <WashingMachine size={16} />, label: "Washer" },
-    ],
     images: Array.from({ length: 14 }, (_, i) => `/apartments/b10/${i + 1}.jpg`),
     guests: 3,
     bedrooms: 1,
@@ -69,15 +56,6 @@ export const apartments: Apartment[] = [
   {
     id: "b20",
     name: "Suite B20",
-    tagline: "Contemporary Urban Loft",
-    description:
-      "A stunning urban retreat featuring ambient LED lighting, a striking black partition wall, plush blue velvet furnishings, and floor-to-ceiling windows with a private balcony. The perfect blend of drama and sophistication.",
-    features: [
-      { icon: <Wifi size={16} />, label: "High-Speed WiFi" },
-      { icon: <Wind size={16} />, label: "Air Conditioning" },
-      { icon: <Tv size={16} />, label: "Smart TV" },
-      { icon: <WashingMachine size={16} />, label: "Washer" },
-    ],
     images: Array.from({ length: 23 }, (_, i) => `/apartments/b20/${i + 2}.jpg`),
     guests: 4,
     bedrooms: 1,
@@ -96,6 +74,7 @@ function ImageGallery({
   onClose: () => void;
 }) {
   const [current, setCurrent] = useState(0);
+  const { t } = useLocale();
 
   return (
     <motion.div
@@ -128,7 +107,7 @@ function ImageGallery({
       >
         <Image
           src={images[current]}
-          alt={`${name} - Photo ${current + 1}`}
+          alt={`${name} - ${t.apartments.photo} ${current + 1}`}
           fill
           className="object-contain"
           sizes="(max-width: 1280px) 100vw, 1280px"
@@ -161,6 +140,8 @@ export function ApartmentCard({
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [previewIndex, setPreviewIndex] = useState(0);
   const isReversed = index % 2 !== 0;
+  const { t } = useLocale();
+  const copy = t.apartments.items[apartment.id];
 
   return (
     <>
@@ -215,7 +196,7 @@ export function ApartmentCard({
                 {i === 1 && (
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-white text-xs tracking-widest uppercase">
-                      +{apartment.images.length - 3} Photos
+                      +{apartment.images.length - 3} {t.apartments.morePhotos}
                     </span>
                   </div>
                 )}
@@ -227,13 +208,13 @@ export function ApartmentCard({
         {/* Content */}
         <div className={`${isReversed ? "lg:order-1" : ""}`} style={{ direction: "ltr" }}>
           <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">
-            {apartment.tagline}
+            {copy.tagline}
           </p>
           <h3 className="text-3xl md:text-4xl font-light text-foreground mb-6 tracking-tight">
             {apartment.name}
           </h3>
           <p className="text-muted-foreground leading-relaxed mb-8">
-            {apartment.description}
+            {copy.description}
           </p>
 
           {/* Stats */}
@@ -241,13 +222,13 @@ export function ApartmentCard({
             <div className="flex items-center gap-2 text-muted-foreground">
               <Bed size={18} className="text-primary" />
               <span className="text-sm">
-                {apartment.bedrooms} Bedroom
+                {apartment.bedrooms} {t.apartments.bedroom}
               </span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Bath size={18} className="text-primary" />
               <span className="text-sm">
-                {apartment.bathrooms} Bathroom
+                {apartment.bathrooms} {t.apartments.bathroom}
               </span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
@@ -258,13 +239,13 @@ export function ApartmentCard({
 
           {/* Features */}
           <div className="flex flex-wrap gap-3 mb-10">
-            {apartment.features.map((feature) => (
+            {features.map((feature) => (
               <div
-                key={feature.label}
+                key={feature.key}
                 className="flex items-center gap-2 px-4 py-2 bg-secondary/50 border border-border text-muted-foreground text-xs tracking-wider"
               >
                 <span className="text-primary">{feature.icon}</span>
-                {feature.label}
+                {t.apartments.features[feature.key]}
               </div>
             ))}
           </div>
@@ -273,7 +254,7 @@ export function ApartmentCard({
             onClick={() => setGalleryOpen(true)}
             className="px-8 py-3.5 bg-primary text-primary-foreground text-sm tracking-[0.15em] uppercase hover:bg-primary/90 transition-all duration-300"
           >
-            View Gallery
+            {t.apartments.viewGallery}
           </button>
         </div>
       </motion.div>
