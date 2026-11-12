@@ -56,7 +56,7 @@ export function Contact() {
                 </a>
 
                 <a
-                  href="tel:+38344123456"
+                  href="tel:+38344116924"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
                 >
                   <div className="w-12 h-12 flex items-center justify-center border border-border group-hover:border-primary/40 transition-colors">
@@ -66,21 +66,26 @@ export function Contact() {
                     <p className="text-xs tracking-widest uppercase text-muted-foreground/60 mb-1">
                       Phone
                     </p>
-                    <p className="text-sm">+383 44 123 456</p>
+                    <p className="text-sm">+383 44 116 924</p>
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 text-muted-foreground group">
-                  <div className="w-12 h-12 flex items-center justify-center border border-border">
+                <a
+                  href="https://maps.app.goo.gl/UFQ6M3n1yreo6vvZA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
+                >
+                  <div className="w-12 h-12 flex items-center justify-center border border-border group-hover:border-primary/40 transition-colors">
                     <MapPin size={18} />
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground/60 mb-1">
                       Location
                     </p>
-                    <p className="text-sm">Premium City Center Location</p>
+                    <p className="text-sm">Prishtina, Kosovo · View on Google Maps</p>
                   </div>
-                </div>
+                </a>
 
                 <a
                   href="#"
