@@ -56,7 +56,7 @@ export const apartments: Apartment[] = [
   {
     id: "mallorca",
     name: "Mallorca Apartment",
-    images: gallery("mallorca", 21, [2, 9, 13]),
+    images: gallery("mallorca", 21, [1, 9, 13]),
     bedrooms: 1,
     bathrooms: 1,
   },
