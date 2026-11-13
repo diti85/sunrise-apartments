@@ -10,6 +10,11 @@ import { apartments } from "@/components/apartment-card";
 const WHATSAPP_NUMBER = "38344116924";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
+const PHONE_NUMBERS = [
+  { tel: "+38344116924", display: "+383 44 116 924" },
+  { tel: "+38349422991", display: "+383 49 422 991" },
+];
+
 const fieldClass =
   "w-full px-4 py-3 bg-secondary/50 border border-border text-foreground text-sm focus:border-primary/50 focus:outline-none transition-colors";
 const labelClass =
@@ -128,20 +133,33 @@ export function Contact() {
                   </div>
                 </a>
 
-                <a
-                  href="tel:+38344116924"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
-                >
-                  <div className="w-12 h-12 flex items-center justify-center border border-border group-hover:border-primary/40 transition-colors">
+                <div className="flex items-center gap-4 text-muted-foreground">
+                  <div className="w-12 h-12 flex items-center justify-center border border-border">
                     <Phone size={18} />
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground/60 mb-1">
                       {t.contact.phone}
                     </p>
-                    <p className="text-sm">+383 44 116 924</p>
+                    <p className="text-sm flex flex-wrap gap-x-3 gap-y-1">
+                      {PHONE_NUMBERS.map((phone, i) => (
+                        <span key={phone.tel} className="flex items-center gap-3">
+                          {i > 0 && (
+                            <span aria-hidden className="text-muted-foreground/40">
+                              ·
+                            </span>
+                          )}
+                          <a
+                            href={`tel:${phone.tel}`}
+                            className="hover:text-primary transition-colors"
+                          >
+                            {phone.display}
+                          </a>
+                        </span>
+                      ))}
+                    </p>
                   </div>
-                </a>
+                </div>
 
                 <a
                   href="https://maps.app.goo.gl/UFQ6M3n1yreo6vvZA"
