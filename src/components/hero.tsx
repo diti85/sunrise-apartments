@@ -6,10 +6,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useLocale } from "@/i18n/locale-provider";
 
+// Alternates building shots with standout interiors from different apartments.
 const heroImages = [
-  "/apartments/b20/3.jpg",
-  "/apartments/b10/3.jpg",
-  "/apartments/a57/3.jpg",
+  "/building/exterior.jpg",
+  "/apartments/b20/4.jpg",
+  "/building/lobby.jpg",
+  "/apartments/mallorca/2.jpg",
+  "/building/garden.jpg",
+  "/apartments/a57/4.jpg",
+  "/building/entrance.jpg",
+  "/apartments/genoa/3.jpg",
 ];
 
 export function Hero() {

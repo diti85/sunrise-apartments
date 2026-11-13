@@ -35,14 +35,44 @@ export interface Apartment {
   size?: string;
 }
 
-const gallery = (id: Apartment["id"], count: number) =>
-  Array.from({ length: count }, (_, i) => `/apartments/${id}/${i + 1}.jpg`);
+/**
+ * Photo list for an apartment. `lead` photo numbers come first: the card shows
+ * lead[0] large and lead[1..2] beside it, so pick a living-room shot plus two
+ * different rooms. The remaining photos follow in their original order.
+ */
+const gallery = (
+  id: Apartment["id"],
+  count: number,
+  lead: number[],
+  start = 1,
+) => {
+  const all = Array.from({ length: count }, (_, i) => i + start);
+  const order = [...lead, ...all.filter((n) => !lead.includes(n))];
+  return order.map((n) => `/apartments/${id}/${n}.jpg`);
+};
 
+// Display order on the site (also the order in the booking form's dropdown).
 export const apartments: Apartment[] = [
+  {
+    id: "mallorca",
+    name: "Mallorca Apartment",
+    images: gallery("mallorca", 21, [2, 9, 13]),
+    bedrooms: 1,
+    bathrooms: 1,
+  },
+  {
+    id: "b20",
+    name: "Palermo Apartment",
+    images: gallery("b20", 23, [4, 2, 13], 2),
+    guests: 4,
+    bedrooms: 1,
+    bathrooms: 1,
+    size: "60m²",
+  },
   {
     id: "a57",
     name: "Torino Apartment",
-    images: Array.from({ length: 27 }, (_, i) => `/apartments/a57/${i + 1}.jpg`),
+    images: gallery("a57", 27, [4, 11, 15]),
     guests: 4,
     bedrooms: 1,
     bathrooms: 1,
@@ -51,53 +81,37 @@ export const apartments: Apartment[] = [
   {
     id: "b10",
     name: "Firence Apartment",
-    images: Array.from({ length: 14 }, (_, i) => `/apartments/b10/${i + 1}.jpg`),
+    images: gallery("b10", 14, [3, 7, 12]),
     guests: 3,
     bedrooms: 1,
     bathrooms: 1,
     size: "45m\u00B2",
   },
   {
-    id: "b20",
-    name: "Palermo Apartment",
-    images: Array.from({ length: 23 }, (_, i) => `/apartments/b20/${i + 2}.jpg`),
-    guests: 4,
-    bedrooms: 1,
-    bathrooms: 1,
-    size: "60m\u00B2",
-  },
-  {
     id: "milano",
     name: "Milano Apartment",
-    images: gallery("milano", 8),
+    images: gallery("milano", 8, [2, 6, 7]),
     bedrooms: 1,
     bathrooms: 1,
   },
   {
     id: "siena",
     name: "Siena Apartment",
-    images: gallery("siena", 14),
+    images: gallery("siena", 14, [1, 8, 10]),
     bedrooms: 1,
     bathrooms: 1,
   },
   {
     id: "bologna",
     name: "Bologna Apartment",
-    images: gallery("bologna", 10),
+    images: gallery("bologna", 10, [1, 5, 10]),
     bedrooms: 1,
     bathrooms: 1,
   },
   {
     id: "genoa",
     name: "Genoa Apartment",
-    images: gallery("genoa", 14),
-    bedrooms: 1,
-    bathrooms: 1,
-  },
-  {
-    id: "mallorca",
-    name: "Mallorca Apartment",
-    images: gallery("mallorca", 21),
+    images: gallery("genoa", 14, [3, 8, 10]),
     bedrooms: 1,
     bathrooms: 1,
   },
