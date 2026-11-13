@@ -67,6 +67,31 @@ const en = {
         description:
           "A stunning urban retreat featuring ambient LED lighting, a striking black partition wall, plush blue velvet furnishings, and floor-to-ceiling windows with a private balcony. The perfect blend of drama and sophistication.",
       },
+      milano: {
+        tagline: "Cozy Scandinavian Comfort",
+        description:
+          "Soft neutral tones, a plush sectional with nesting coffee tables, and ambient LED lighting create a warm, inviting living space. A fully fitted kitchen and a serene bedroom make it ideal for relaxed city stays.",
+      },
+      siena: {
+        tagline: "Warm Tuscan Light",
+        description:
+          "Bathed in warm, golden tones, this bright apartment pairs a spacious corner sofa and curated artwork with tall French windows and a private balcony overlooking the city. A calm, sunlit escape.",
+      },
+      bologna: {
+        tagline: "Bright Contemporary Living",
+        description:
+          "An airy open-plan apartment with track lighting, a generous sectional accented in warm yellow, and a sleek kitchen. A tranquil bedroom and a modern bathroom with walk-in shower complete the stay.",
+      },
+      genoa: {
+        tagline: "Coastal Teal Elegance",
+        description:
+          "A striking teal kitchen, velvet blue sofa, and coastal artwork bring Ligurian character to this stylish apartment. Warm bedroom lighting, a stone-finished bathroom, and a balcony with city views add to its charm.",
+      },
+      mallorca: {
+        tagline: "Mediterranean Coastal Retreat",
+        description:
+          "Graceful arches, soft curved furnishings, and a calming blue-and-white palette evoke the Balearic coast. Indirect ceiling lighting, a fully equipped kitchenette, and a dreamy blue bedroom create a truly relaxing stay.",
+      },
     },
   },
   about: {
@@ -103,7 +128,8 @@ const en = {
     intro:
       "Ready to experience luxury living? Reach out to us and we'll help you find the perfect apartment for your stay.",
     infoTitle: "Contact Information",
-    email: "Email",
+    whatsapp: "WhatsApp",
+    whatsappText: "Chat with us on WhatsApp",
     phone: "Phone",
     location: "Location",
     locationText: "Prishtina, Kosovo · View on Google Maps",
@@ -113,13 +139,26 @@ const en = {
       firstNamePlaceholder: "John",
       lastName: "Last Name",
       lastNamePlaceholder: "Doe",
-      email: "Email",
-      emailPlaceholder: "john@example.com",
+      apartment: "Apartment",
+      apartmentAny: "Any apartment",
+      guests: "Guests",
       checkIn: "Check-in",
       checkOut: "Check-out",
       message: "Message",
       messagePlaceholder: "Tell us about your ideal stay...",
-      submit: "Send Inquiry",
+      submit: "Send via WhatsApp",
+      note: "Opens WhatsApp with your inquiry ready to send.",
+      errorDates: "Check-out must be after check-in.",
+      wa: {
+        greeting: "Hello Sunrise Apartments! I'd like to book a stay.",
+        name: "Name",
+        apartment: "Apartment",
+        checkIn: "Check-in",
+        checkOut: "Check-out",
+        nights: "nights",
+        guests: "Guests",
+        message: "Message",
+      },
     },
   },
   footer: {
@@ -189,6 +228,31 @@ const sq: Dictionary = {
         description:
           "Një strehë urbane mahnitëse me ndriçim ambiental LED, një mur ndarës të zi që bie në sy, mobilie të buta prej kadifeje blu dhe dritare nga dyshemeja deri te tavani me ballkon privat. Ndërthurja e përsosur e dramës dhe sofistikimit.",
       },
+      milano: {
+        tagline: "Komoditet i ngrohtë skandinav",
+        description:
+          "Tone të buta neutrale, një divan i madh këndor me tavolina të vogla dhe ndriçim ambiental LED krijojnë një dhomë ndenjeje të ngrohtë e mikpritëse. Kuzhina e pajisur plotësisht dhe dhoma e qetë e gjumit e bëjnë ideale për qëndrime të relaksuara në qytet.",
+      },
+      siena: {
+        tagline: "Dritë e ngrohtë toskane",
+        description:
+          "E mbushur me tone të ngrohta e të arta, ky apartament i ndritshëm ndërthur një divan të gjerë këndor dhe vepra arti të përzgjedhura me dritare të larta franceze dhe një ballkon privat me pamje nga qyteti. Një strehë e qetë plot dritë dielli.",
+      },
+      bologna: {
+        tagline: "Jetesë e ndritshme bashkëkohore",
+        description:
+          "Një apartament i ajrosur me plan të hapur, ndriçim me shina, divan i madh me theksa të verdhë dhe kuzhinë moderne. Një dhomë gjumi e qetë dhe banjo moderne me dush të hapur e plotësojnë qëndrimin.",
+      },
+      genoa: {
+        tagline: "Elegancë bregdetare në ngjyrë gurkali",
+        description:
+          "Kuzhina mbresëlënëse në ngjyrë gurkali, divani blu prej kadifeje dhe veprat e artit bregdetar i japin këtij apartamenti karakter ligurian. Ndriçimi i ngrohtë i dhomës së gjumit, banjoja me gur dhe ballkoni me pamje nga qyteti e shtojnë hijeshinë.",
+      },
+      mallorca: {
+        tagline: "Strehë mesdhetare bregdetare",
+        description:
+          "Harqe të hijshme, mobilie me forma të buta dhe një paletë qetësuese blu e bardhë të kujtojnë bregdetin balearik. Ndriçimi indirekt i tavanit, kuzhina e pajisur plotësisht dhe dhoma e gjumit në blu krijojnë një qëndrim vërtet relaksues.",
+      },
     },
   },
   about: {
@@ -225,7 +289,8 @@ const sq: Dictionary = {
     intro:
       "Gati për të përjetuar jetesën luksoze? Na shkruani dhe do t'ju ndihmojmë të gjeni apartamentin e përsosur për qëndrimin tuaj.",
     infoTitle: "Informacioni i kontaktit",
-    email: "Email",
+    whatsapp: "WhatsApp",
+    whatsappText: "Na shkruani në WhatsApp",
     phone: "Telefoni",
     location: "Lokacioni",
     locationText: "Prishtinë, Kosovë · Shiko në Google Maps",
@@ -235,13 +300,26 @@ const sq: Dictionary = {
       firstNamePlaceholder: "Arben",
       lastName: "Mbiemri",
       lastNamePlaceholder: "Krasniqi",
-      email: "Email",
-      emailPlaceholder: "arben@shembull.com",
+      apartment: "Apartamenti",
+      apartmentAny: "Cilido apartament",
+      guests: "Mysafirë",
       checkIn: "Data e mbërritjes",
       checkOut: "Data e largimit",
       message: "Mesazhi",
       messagePlaceholder: "Na tregoni për qëndrimin tuaj ideal...",
-      submit: "Dërgo kërkesën",
+      submit: "Dërgo në WhatsApp",
+      note: "Hap WhatsApp me kërkesën tuaj gati për t'u dërguar.",
+      errorDates: "Data e largimit duhet të jetë pas datës së mbërritjes.",
+      wa: {
+        greeting: "Përshëndetje Sunrise Apartments! Dëshiroj të rezervoj një qëndrim.",
+        name: "Emri",
+        apartment: "Apartamenti",
+        checkIn: "Mbërritja",
+        checkOut: "Largimi",
+        nights: "netë",
+        guests: "Mysafirë",
+        message: "Mesazhi",
+      },
     },
   },
   footer: {
